@@ -88,25 +88,26 @@ class ArticlesTest extends TestCase
         $response->assertSeeText('Edit Article');
     }
 
-//    public function testStoreEventForm()
-//    {
-//        // Preparo
-//        $event = factory(Event::class)->make();
-//        // Executo
-//        $response = $this->post('/events',[
-//            'name' => $event->name,
-//            'description' => $event->description,
-//        ]);
-//        // Comprovo
-//        $response->assertStatus(200);
-//        $response->assertRedirect('events/create');
+    public function testStoreArticleForm()
+    {
+        // Preparo
+        $article = factory(Article::class)->make();
+        // Executo
+        $response = $this->post('/articles',[
+            'title' => $article->title,
+            'description' => $article->description,
+        ]);
+        // Comprovo
+        $response->assertStatus(200);
+        $response->assertRedirect('articles/create');
 //        $response->assertSeeText('Created ok!');
 //
-//        $this->assertDatabaseHas('events',[
-//            'name' => $event->name,
-//            'description' => $event->description,
+//        $this->assertDatabaseHas('articles',[
+//            'title' => $article->title,
+//            'description' => $article->description,
 //        ]);
-//    }
+    }
+
 //    public function testUpdateEventForm()
 //    {
 //        // Preparo
@@ -134,6 +135,7 @@ class ArticlesTest extends TestCase
 //            'description' => $event->description,
 //        ]);
 //    }
+
 //    public function testDeleteEvent()
 //    {
 //        // Preparo

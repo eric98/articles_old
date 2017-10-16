@@ -24,9 +24,13 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 });
 
+//Route::resource('articles','ArticleController');
+
 Route::get('/articles','ArticleController@index'); // 1 Retrieve -> Llista completa -> Paginació
 
 Route::get('/articles/create','ArticleController@create');
+Route::post('/articles/create','ArticleController@store');
+
 Route::get('/articles/edit','ArticleController@edit');
 
 Route::get('/articles/{article}','ArticleController@show'); // 2 Retrieve -> recurs concret
