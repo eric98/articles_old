@@ -63,4 +63,91 @@ class ArticlesTest extends TestCase
         // Comprovo
         $response->assertStatus(404);
     }
+
+    //laravel eloquent: retrieving models
+
+    public function testShowCreateArticleForm()
+    {
+        // Preparo
+        // Executo
+        $response = $this->get('/articles/create');
+        // Comprovo
+        $response->assertStatus(200);
+        $response->assertViewIs('create_article');
+        $response->assertSeeText('Create Article');
+    }
+
+//    public function testShowEditArticleForm()
+//    {
+//        // Preparo
+//        // Executo
+//        $response = $this->get('/articles/edit');
+//        // Comprovo
+//        $response->assertStatus(200);
+//        $response->assertViewIs('edit_article');
+//        $response->assertSeeText('Edit Article');
+//    }
+
+//    public function testStoreEventForm()
+//    {
+//        // Preparo
+//        $event = factory(Event::class)->make();
+//        // Executo
+//        $response = $this->post('/events',[
+//            'name' => $event->name,
+//            'description' => $event->description,
+//        ]);
+//        // Comprovo
+//        $response->assertStatus(200);
+//        $response->assertRedirect('events/create');
+//        $response->assertSeeText('Created ok!');
+//
+//        $this->assertDatabaseHas('events',[
+//            'name' => $event->name,
+//            'description' => $event->description,
+//        ]);
+//    }
+//    public function testUpdateEventForm()
+//    {
+//        // Preparo
+//        $event = factory(Event::class)->create();
+//        // Executo
+//        $newEvent = factory(Event::class)->make();
+//        $response = $this->patch('/events/' . $event->id,[
+//            'name' => $newEvent->name,
+//            'description' => $newEvent->description,
+//        ]);
+//        // Comprovo
+//        $response->assertStatus(200);
+//        $response->assertRedirect('events/create');
+//        $response->assertSeeText('Edited ok!');
+//
+//        $this->assertDatabaseHas('events',[
+//            'id' =>  $event->id,
+//            'name' => $newEvent->name,
+//            'description' => $newEvent->description,
+//        ]);
+//
+//        $this->assertDatabaseMissing('events',[
+//            'id' =>  $event->id,
+//            'name' => $event->name,
+//            'description' => $event->description,
+//        ]);
+//    }
+//    public function testDeleteEvent()
+//    {
+//        // Preparo
+//        $event = factory(Event::class)->create();
+//        // Executo
+//        $response = $this->delete('/events/' . $event->id);
+//        // Comprovo
+//        //$response->assertStatus(200);
+//        $response->assertRedirect('events');
+//        $response->assertSeeText('Deleted ok!');
+//
+//        $this->assertDatabaseMissing('events', [
+//            'name' => $event->name,
+//            'description' => $event->description,
+//        ]);
+//    }
 }
