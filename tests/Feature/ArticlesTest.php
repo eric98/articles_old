@@ -77,16 +77,16 @@ class ArticlesTest extends TestCase
         $response->assertSeeText('Create Article');
     }
 
-//    public function testShowEditArticleForm()
-//    {
-//        // Preparo
-//        // Executo
-//        $response = $this->get('/articles/edit');
-//        // Comprovo
-//        $response->assertStatus(200);
-//        $response->assertViewIs('edit_article');
-//        $response->assertSeeText('Edit Article');
-//    }
+    public function testShowEditArticleForm()
+    {
+        // Preparo
+        // Executo
+        $response = $this->get('/articles/edit');
+        // Comprovo
+        $response->assertStatus(200);
+        $response->assertViewIs('edit_article');
+        $response->assertSeeText('Edit Article');
+    }
 
 //    public function testStoreEventForm()
 //    {
