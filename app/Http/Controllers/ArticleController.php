@@ -44,6 +44,11 @@ class ArticleController extends Controller
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
+        $response = $this->post('/articles',[
+            'title' => $article->title,
+            'description' => $article->description,
+        ]);
+        dd($response);
         return view('successfull_article');
     }
 
