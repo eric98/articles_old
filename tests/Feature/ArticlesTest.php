@@ -100,8 +100,8 @@ class ArticlesTest extends TestCase
         // Comprovo
         $response->assertStatus(200);
         $response->assertRedirect('articles/create');
-//        $response->assertSeeText('Created ok!');
-//
+        $response->assertSeeText('Created ok!');
+
 //        $this->assertDatabaseHas('articles',[
 //            'title' => $article->title,
 //            'description' => $article->description,

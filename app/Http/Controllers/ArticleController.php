@@ -42,12 +42,9 @@ class ArticleController extends Controller
         try{
             $article = Article::create(['title' => $request->title, 'description' => $request->description]);
         } catch (Exception $e) {
-//            echo 'Caught exception: ',  $e->getMessage(), "\n";
-            echo 'Caught exception: ';
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
-
-        $articles = Article::all();
-        return view('list_article',compact('articles'));
+        return view('successfull_article');
     }
 
     /**
