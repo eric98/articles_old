@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ArticleController extends Controller
 {
@@ -38,7 +39,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-//        return view('create_article');
+        try{
+            $article = Article::create(['title' => $request->title, 'description' => $request->description]);
+        } catch (Exception $e) {
+//            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            echo 'Caught exception: ';
+        }
+
+        $articles = Article::all();
+        return view('list_article',compact('articles'));
     }
 
     /**
